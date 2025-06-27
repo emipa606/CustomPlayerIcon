@@ -1,4 +1,4 @@
-# [Custom player icon (Continued)]()
+# [Custom player icon (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3290779422)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -14,7 +14,7 @@ Update of Ogams mod https://steamcommunity.com/sharedfiles/filedetails/?id=27910
 Allows you to set custom player icon.
 This mod use icons from Ideology DLC and any other mod to add more icons.
 
-You can add your own icons 64x65 and bigger just by putting them here **steamapps\workshop\content\294100\2791050256\Textures\CustomPlayerIcons**
+You can add your own icons 64x65 and bigger just by putting them here **steamapps\workshop\content\294100\3290779422\Textures\CustomPlayerIcons**
 
 ![Image](https://i.imgur.com/6oqPvaw.png)
 
@@ -23,10 +23,6 @@ You can add your own icons 64x65 and bigger just by putting them here **steamapp
 **Commissioned** by Ogam
 **Code:** Taranchuk
 **Art:** Ogam 
-
-[![Image](https://i.imgur.com/ABiEe4Z.png)](https://discord.gg/fGejcxbSY5)
-[![Image](https://i.imgur.com/4dcuWk2.png)](https://boosty.to/solparum)
-[![Image](https://i.imgur.com/cfoFEMA.png)](https://discord.gg/7befJWr9xS)
 
 ![Image](https://i.imgur.com/PwoNOj4.png)
 
@@ -40,4 +36,6 @@ You can add your own icons 64x65 and bigger just by putting them here **steamapp
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
+[![Image](https://img.shields.io/github/v/release/emipa606/CustomPlayerIcon?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3290779422) | tags: customization,  custom icons

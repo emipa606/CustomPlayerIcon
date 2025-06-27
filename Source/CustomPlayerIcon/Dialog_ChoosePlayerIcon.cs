@@ -13,9 +13,9 @@ public class Dialog_ChoosePlayerIcon : Window
 
     private static Color newColor;
 
-    private static readonly Vector2 ButSize = new Vector2(150f, 38f);
+    private static readonly Vector2 butSize = new(150f, 38f);
 
-    public static bool firstTime = true;
+    private static bool firstTime = true;
 
     private Vector2 scrollPos;
 
@@ -29,16 +29,16 @@ public class Dialog_ChoosePlayerIcon : Window
             return;
         }
 
-        newColor = Core.colors.First();
-        newIconPath = Core.allIconPaths.First();
+        newColor = Core.Colors.First();
+        newIconPath = Core.AllIconPaths.First();
         firstTime = false;
     }
 
-    public override Vector2 InitialSize => new Vector2(740f, 700f);
+    public override Vector2 InitialSize => new(740f, 700f);
 
     public override void OnAcceptKeyPressed()
     {
-        TryAccept();
+        tryAccept();
         Event.current.Use();
     }
 
@@ -55,25 +55,25 @@ public class Dialog_ChoosePlayerIcon : Window
         mainRect.yMin = y;
         DoColorSelector(mainRect, ref y);
         mainRect.yMin = y;
-        DoIconSelector(mainRect);
-        if (Widgets.ButtonText(new Rect(0f, rect.height - ButSize.y, ButSize.x, ButSize.y), "Back".Translate()))
+        doIconSelector(mainRect);
+        if (Widgets.ButtonText(new Rect(0f, rect.height - butSize.y, butSize.x, butSize.y), "Back".Translate()))
         {
             Close();
         }
 
-        if (Widgets.ButtonText(new Rect(rect.width - ButSize.x, rect.height - ButSize.y, ButSize.x, ButSize.y),
+        if (Widgets.ButtonText(new Rect(rect.width - butSize.x, rect.height - butSize.y, butSize.x, butSize.y),
                 "DoneButton".Translate()))
         {
-            TryAccept();
+            tryAccept();
         }
     }
 
-    private void DoIconSelector(Rect mainRect)
+    private void doIconSelector(Rect mainRect)
     {
         var num = 50;
         var viewRect = new Rect(0f, 0f, mainRect.width - 16f, viewHeight);
         Widgets.BeginScrollView(mainRect, ref scrollPos, viewRect);
-        IEnumerable<string> allDefs = Core.allIconPaths;
+        IEnumerable<string> allDefs = Core.AllIconPaths;
         var num2 = Mathf.FloorToInt(viewRect.width / (num + 5));
         var num3 = allDefs.Count();
         var num4 = 0;
@@ -110,17 +110,17 @@ public class Dialog_ChoosePlayerIcon : Window
 
     private void DoColorSelector(Rect mainRect, ref float curY)
     {
-        var num = 26;
-        var num2 = 98f;
+        const int num = 26;
+        const float num2 = 98f;
         var num3 = Mathf.FloorToInt((mainRect.width - num2) / (num + 2));
-        var num4 = Mathf.CeilToInt(Core.colors.Count / (float)num3);
+        var num4 = Mathf.CeilToInt(Core.Colors.Count / (float)num3);
         GUI.BeginGroup(mainRect);
         GUI.color = newColor;
         GUI.DrawTexture(new Rect(5f, 5f, 88f, 88f), ContentFinder<Texture2D>.Get(newIconPath));
         GUI.color = Color.white;
         curY += num2;
         var num5 = 0;
-        foreach (var item in Core.colors)
+        foreach (var item in Core.Colors)
         {
             var num6 = num5 / num3;
             var num7 = num5 % num3;
@@ -148,7 +148,7 @@ public class Dialog_ChoosePlayerIcon : Window
         curY += 4f;
     }
 
-    private void TryAccept()
+    private void tryAccept()
     {
         CustomPlayerIconComponent.Instance.chosenColor = newColor;
         CustomPlayerIconComponent.Instance.chosenTexPath = newIconPath;

@@ -9,7 +9,7 @@ namespace CustomPlayerIcon;
 [StaticConstructorOnStartup]
 public static class Core
 {
-    public static readonly List<Color> colors =
+    public static readonly List<Color> Colors =
     [
         new ColorInt(245, 245, 245).ToColor,
         new ColorInt(192, 192, 192).ToColor,
@@ -44,34 +44,34 @@ public static class Core
         new ColorInt(255, 115, 199).ToColor,
         new ColorInt(191, 86, 149).ToColor,
         new ColorInt(148, 67, 115).ToColor,
-        new Color(0.1f, 0.1f, 0.1f),
-        new Color(0.2f, 0.2f, 0.2f),
-        new Color(0.31f, 0.28f, 0.26f),
-        new Color(0.25f, 0.2f, 0.15f),
-        new Color(0.3f, 0.2f, 0.1f),
+        new(0.1f, 0.1f, 0.1f),
+        new(0.2f, 0.2f, 0.2f),
+        new(0.31f, 0.28f, 0.26f),
+        new(0.25f, 0.2f, 0.15f),
+        new(0.3f, 0.2f, 0.1f),
         new ColorInt(90, 58, 32).ToColor,
         new ColorInt(132, 83, 47).ToColor,
         new ColorInt(193, 146, 85).ToColor,
         new ColorInt(237, 202, 156).ToColor
     ];
 
-    public static readonly HashSet<string> allIconPaths = [];
+    public static readonly HashSet<string> AllIconPaths = [];
 
     static Core()
     {
-        colors.SortByColor(x => x);
+        Colors.SortByColor(x => x);
         foreach (var t in ContentFinder<Texture2D>.GetAllInFolder("UI/Ideoligions"))
         {
             var path = $"UI/Ideoligions/{t.name}";
             if (ContentFinder<Texture2D>.Get(path, false) != null)
             {
-                allIconPaths.Add(path);
+                AllIconPaths.Add(path);
             }
         }
 
         foreach (var def in DefDatabase<IdeoIconDef>.AllDefs)
         {
-            allIconPaths.Add(def.iconPath);
+            AllIconPaths.Add(def.iconPath);
         }
 
         foreach (var t in ContentFinder<Texture2D>.GetAllInFolder("CustomPlayerIcons"))
@@ -79,7 +79,7 @@ public static class Core
             var path = $"CustomPlayerIcons/{t.name}";
             if (ContentFinder<Texture2D>.Get(path, false) != null)
             {
-                allIconPaths.Add(path);
+                AllIconPaths.Add(path);
             }
         }
 
