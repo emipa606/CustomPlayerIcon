@@ -29,7 +29,7 @@ public class Dialog_ChoosePlayerIcon : Window
             return;
         }
 
-        newColor = Core.Colors.First();
+        newColor = Core.Colors[0];
         newIconPath = Core.AllIconPaths.First();
         firstTime = false;
     }
@@ -42,9 +42,9 @@ public class Dialog_ChoosePlayerIcon : Window
         Event.current.Use();
     }
 
-    public override void DoWindowContents(Rect rect)
+    public override void DoWindowContents(Rect inRect)
     {
-        var rect2 = rect;
+        var rect2 = inRect;
         rect2.height -= CloseButSize.y;
         Text.Font = GameFont.Medium;
         Text.Font = GameFont.Small;
@@ -56,12 +56,12 @@ public class Dialog_ChoosePlayerIcon : Window
         DoColorSelector(mainRect, ref y);
         mainRect.yMin = y;
         doIconSelector(mainRect);
-        if (Widgets.ButtonText(new Rect(0f, rect.height - butSize.y, butSize.x, butSize.y), "Back".Translate()))
+        if (Widgets.ButtonText(new Rect(0f, inRect.height - butSize.y, butSize.x, butSize.y), "Back".Translate()))
         {
             Close();
         }
 
-        if (Widgets.ButtonText(new Rect(rect.width - butSize.x, rect.height - butSize.y, butSize.x, butSize.y),
+        if (Widgets.ButtonText(new Rect(inRect.width - butSize.x, inRect.height - butSize.y, butSize.x, butSize.y),
                 "DoneButton".Translate()))
         {
             tryAccept();
@@ -108,7 +108,7 @@ public class Dialog_ChoosePlayerIcon : Window
         Widgets.EndScrollView();
     }
 
-    private void DoColorSelector(Rect mainRect, ref float curY)
+    private static void DoColorSelector(Rect mainRect, ref float curY)
     {
         const int num = 26;
         const float num2 = 98f;
